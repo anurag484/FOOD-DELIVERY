@@ -35,7 +35,7 @@ import axios from "axios";
         {
             if (cartItems[item] > 0) {
                 let itemInfo = food_list.find((product) => product._id === item)
-                totalAmount += itemInfo.price * cartItems[item];
+                totalAmount += itemInfo?.price * cartItems[item];
             }
         }
         return totalAmount;

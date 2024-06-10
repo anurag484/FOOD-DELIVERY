@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 // eslint-disable-next-line react/prop-types
 const Add = ({url}) => {
 
-    const [image,setImage] = useState(false);
+    const [image,setImage] = useState(null);
     const [data,setData] = useState({
         name:"",
         description:"",
@@ -32,7 +32,7 @@ const Add = ({url}) => {
         formData.append("price",Number(data.price))
         formData.append("category",data.category)
         formData.append("image",image)
-        const response = await axios.post(`${url}/api/food/add`,formData)
+        const response = await axios.post(`${url}/api/food/add`,formData);
         if (response.data.success) {
             setData({
                 name:"",
@@ -40,7 +40,7 @@ const Add = ({url}) => {
                 price:"",
                 category:"Salad"
             })
-            setImage(false)
+            setImage(null);
             toast.success(response.data.message)
         }
         else{

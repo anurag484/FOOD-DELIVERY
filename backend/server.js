@@ -14,7 +14,7 @@ const port=4000
 // middleware
 app.use(express.json())
 const corsOptions = {
-    origin: 'http://localhost:5173', // Replace with your Vite development server URL
+    origin: ['http://localhost:5173', 'http://localhost:5174'], // Replace with your Vite development server URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204
